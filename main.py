@@ -13,7 +13,7 @@ try:
 except:
     try:
         file = open("tictactoe_stats\stats.txt", "x")
-        file.close
+        file.close()
     except:
         pass
     games_won = 0
@@ -40,7 +40,6 @@ class Oponent():
 
     def make_turn(self, board : list) -> str:
         if self.prev_turn == []:
-            print("we doin starter")
             if random.randint(1, 9) > 4:
                 return (random.randint(1, len(board)-1), random.randint(1, len(board)-1))
             else:
@@ -83,14 +82,13 @@ class Oponent():
                 return random.choice(tempturn)
 
 
-def check_win(board: list) -> str:
+def check_win(board: list):
     total = 0
     for i, n in enumerate(board):
         for j, n2 in enumerate(n):
             if n2 != 0:
                 total += 1
                 if check_win_til(board, (i, j), (0, 0), 3):
-                    print("win found")
                     return 1
     if total == len(board)**2:
         return -1
