@@ -187,7 +187,7 @@ while running:
                     xs_played+=1
                 else:
                     os_played+=1
-                if check_win(board):
+                if check_win(board) == 1:
                     if p1turn:
                         display_board()
                         print()
@@ -258,7 +258,7 @@ while running:
                     xs_played+=1
                 else:
                     os_played+=1
-                if check_win(board):
+                if check_win(board) == 1:
                     if turn:
                         print("Победили крестики!")
                     else:
