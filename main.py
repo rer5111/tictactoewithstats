@@ -71,8 +71,8 @@ class Oponent():
             tempturn = []
             for i in range(-1, 1):
                 for j in range(-1, 1):
-                    if i+j != 0 and boardget((i, j), board) != -1:
-                        tempturn.append((i, j))
+                    if i+j != 0 and boardget((x+i, y+j), board) != -1:
+                        tempturn.append((x+i, y+j))
             if len(tempturn) == 0:
                 while True:
                     x, y = random.randint(0, len(board)-1), random.randint(0, len(board)-1)
