@@ -83,16 +83,17 @@ class Oponent():
                 return random.choice(tempturn)
 
 
-
-    
-
 def check_win(board: list) -> str:
+    total = 0
     for i, n in enumerate(board):
         for j, n2 in enumerate(n):
             if n2 != 0:
+                total += 1
                 if check_win_til(board, (i, j), (0, 0), 3):
                     print("win found")
                     return 1
+    if total == len(board)**2:
+        return -1
 
 def boardget(tile : tuple[int, int], board: list[list]) -> str:
     x, y = tile
@@ -205,6 +206,12 @@ while running:
                     if p1turn:
                         games_won += 1
                     break
+                elif check_win(board) == -1:
+                    display_board()
+                    print()
+                    print("Ничья!")
+                    games_played+=1
+                    break
                 p1turn = not p1turn
                     
 
@@ -256,6 +263,10 @@ while running:
                         print("Победили крестики!")
                     else:
                         print("Победили нолики!")
+                    games_played+= 1
+                    break
+                elif check_win == -1:
+                    print("Ничья!")
                     games_played+= 1
                     break
                 turn = not turn
